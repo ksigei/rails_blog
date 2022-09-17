@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  post: references, index: true, foreign_key: { to_table: :posts }
-  user: references, index: true, foreign_key: { to_table: :users }
+  post: references
+  user: references
   like: boolean
 
 two:
-  post: references, index: true, foreign_key: { to_table: :posts }
-  user: references, index: true, foreign_key: { to_table: :users }
+  post: references
+  user: references
   like: boolean
