@@ -1,19 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  AuthorId: MyString
-  Title: 1
-  Text: MyText
-  UpadtedAt: 2022-09-16 12:50:34
-  CreatedAt: 2022-09-16 12:50:34
-  CommentsCounter: 1
-  LikesCounter: 1
+  user: reference, index: true, foreign_key: { to_table: :users }
+  title: string
+  text: text
+
+  comments_counter: integer, default: 0
+  likes_counter: integer, default: 0
 
 two:
-  AuthorId: MyString
-  Title: 1
-  Text: MyText
-  UpadtedAt: 2022-09-16 12:50:34
-  CreatedAt: 2022-09-16 12:50:34
-  CommentsCounter: 1
-  LikesCounter: 1
+  user: reference, index: true, foreign_key: { to_table: :users }
+  title: string
+  text: text
+
+  comments_counter: integer, default: 0
+  likes_counter: integer, default: 0
