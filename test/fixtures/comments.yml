@@ -1,13 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  AuthorId: MyString
-  Text: MyText
-  UpadtedAt: 2022-09-16 12:51:28
-  CreatedAt: 2022-09-16 12:51:28
+  post: references
+  user: references
+  text: text
 
 two:
-  AuthorId: MyString
-  Text: MyText
-  UpadtedAt: 2022-09-16 12:51:28
-  CreatedAt: 2022-09-16 12:51:28
+  post: references
+  user: references
+  text: text

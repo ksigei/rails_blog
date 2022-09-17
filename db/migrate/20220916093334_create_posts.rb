@@ -5,8 +5,8 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :text
 
-      t.integer :commentsCounter
-      t.integer :likesCounter
+      t.integer :comments_counter, default: 0
+      t.integer :likes_counter, default: 0
 
       t.timestamps 
     end
