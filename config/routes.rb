@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     end
   end
   
-  get '/posts', to: 'posts#index'
   get '/posts/:id', to: 'posts#show'
+  get '/posts/:id/comments', to: 'comments#comments'
+  get '/posts/:id/likes', to: 'likes#likes'
+  
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
   get '/about', to: 'about#about'
