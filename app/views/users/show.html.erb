@@ -18,6 +18,8 @@
 <% @user.posts.each do |post| %>
     <h3><%= post.title %></h3>
     <p><%= post.text %></p>
+    <p><%= post.comments_counter %> Comment
+    <%= post.likes_counter %> Like</p>
     <p><%= link_to 'Read more...', post_path(post) %></p>
 <% end %>
 
