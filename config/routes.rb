@@ -20,6 +20,4 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   get '/about', to: 'about#about'
 
-
-  
 end

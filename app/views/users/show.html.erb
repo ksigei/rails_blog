@@ -1,1 +1,25 @@
-<p>Single user</p>
+<h3><%= @user.name %>'s profile</h3>
+
+<img src="<%= @user.photo %>" alt="profile">
+<p>Name:<%= @user.name %></p>
+<p>Bio:<%= @user.bio %></p>
+<p>
+
+<% if @user.posts_counter == 1 %>
+    <p><%= @user.posts_counter %> post</p>
+<% elsif @user.posts_counter == 0 %>
+    <p>no posts</p>
+<% else %>
+    <p><%= @user.posts_counter %> posts</p>
+<% end %>
+</p>
+
+<%# list all user posts %>
+<% @user.posts.each do |post| %>
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+    <p><%= link_to 'Read more...', post_path(post) %></p>
+<% end %>
+
+
+
