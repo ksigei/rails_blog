@@ -1,2 +1,3 @@
-<h1>Comments#comments</h1>
-<p>Find me in app/views/comments/comments.html.erb</p>
+<% @post.comments do |comment|%>
+<p><%= comment.text %></p>
+<% end %>

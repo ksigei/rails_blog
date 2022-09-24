@@ -1,1 +1,41 @@
-<p>Single user</p>
+<div class="user">
+<div class="profile-image">
+    <img src="<%= @user.photo %>" alt="profile">
+</div>
+<div class="profile-link">
+    <h2><%= @user.name %></h2>
+    <p>
+    <% if @user.posts_counter == 1 %>
+        <%= @user.posts_counter %> <%= link_to("Post", user_posts_path(@user)) %>
+    </h3>
+    <% elsif @user.posts_counter == 0 %>
+        no post
+    </h3>
+
+    <% else %>
+        <%= @user.posts_counter %> <%= link_to("Posts", user_posts_path(@user)) %> 
+    </h3> </p>
+    <% end %>
+    </div>
+    
+</div>
+<div class="author-bio">
+<p>Bio:<%= @user.bio %></p>
+</div>
+
+
+<% @user.posts.each_with_index do |post, index| %>
+<div class="post">
+
+        <%= link_to("/posts/#{post.id}") do%>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <p><%= post.comments_counter %> Comment
+        <%= post.likes_counter %> Like</p>
+        <% end %>
+</div>
+<% end %>
+
+<div class="more-posts">
+<%= link_to("See all...", user_posts_path(@user)) %>
+</div>
