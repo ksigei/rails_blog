@@ -80,3 +80,8 @@ end
 group :development, :test do
   gem 'mini_magick'
 end
+
+# faker
+group :development, :test do
+  gem 'faker'
+end
