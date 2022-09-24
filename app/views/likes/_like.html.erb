@@ -1,0 +1,4 @@
+<%= @post.text %>
+    <%= form_with model: Like, url: post_likes_path(@post.user, @post), method: :post do |form| %>
+    <% form.submit "Like" %>
+<% end %>
