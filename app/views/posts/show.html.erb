@@ -11,6 +11,10 @@
  <% @post.comments.each do |comment|%>
  <p><%= comment.user.name %>: <%= comment.text %></p>
  <hr>
-
  <% end %>
+
+<%= render 'comments/comment' %>
+
+<%= render 'likes/like' %>
+
 
