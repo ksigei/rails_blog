@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  root "users#index"
   resources :posts do 
+    resources :users, only: [:index]
     resources :comments
     resources :likes
   end

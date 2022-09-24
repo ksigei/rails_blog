@@ -1,26 +1,43 @@
-<h3><%= @user.name %>'s profile</h3>
+<div class="user">
+<div class="profile-image">
+    <img src="<%= @user.photo %>" alt="profile">
+</div>
+<div class="profile-link">
+    <h2><%= @user.name %></h2>
+    <p>
+    <% if @user.posts_counter == 1 %>
+        <%= @user.posts_counter %> post
+    </h3>
+    <% elsif @user.posts_counter == 0 %>
+        no post
+    </h3>
 
-<img src="<%= @user.photo %>" alt="profile">
-<p>Name:<%= @user.name %></p>
+    <% else %>
+        <%= @user.posts_counter %> post  
+    </h3> </p>
+    <% end %>
+    </div>
+    
+</div>
+<div class="author-bio">
 <p>Bio:<%= @user.bio %></p>
-<p>
+</div>
 
-<% if @user.posts_counter == 1 %>
-    <p><%= @user.posts_counter %> post</p>
-<% elsif @user.posts_counter == 0 %>
-    <p>no posts</p>
-<% else %>
-    <p><%= @user.posts_counter %> posts</p>
-<% end %>
-</p>
+
 
 <% @user.posts.each do |post| %>
-    <h3><%= post.title %></h3>
-    <p><%= post.text %></p>
-    <p><%= post.comments_counter %> Comment
-    <%= post.likes_counter %> Like</p>
-    <p><%= link_to 'Read more...', post_path(post) %></p>
+<div class="post">
+    <%= link_to("/posts/#{@user.id}") do%>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <p><%= post.comments_counter %> Comment
+        <%= post.likes_counter %> Like</p>
+    <% end %>
+</div>
 <% end %>
 
+<div class="more-posts">
+        <h3>See all posts</h3>
+</div>
 
 
