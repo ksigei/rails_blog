@@ -75,3 +75,8 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
 end
+
+# image processing
+group :development, :test do
+  gem 'mini_magick'
+end
