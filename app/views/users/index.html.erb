@@ -1,26 +1,2 @@
-<% @users.each do |user| %>
-    <div class="user">
-    <div class="profile-image">
-    <img src="<%=user.photo %>" alt="profile">
-    </div>
-    <%= link_to("/users/#{user.id}") do%>
-    <div class="profile-link">
-    <h2><%= user.name %></h2>
-    <p>
-    <% if user.posts_counter == 1 %>
-        <%= user.posts_counter %> post
-    </h3>
-    <% elsif user.posts_counter == 0 %>
-        no posts
-    </h3>
-
-    <% else %>
-        <%= user.posts_counter %> posts  
-    </h3> </p>
-    <% end %>
-    </div>
-    
-    <% end %>
-    
-    </div>
-<% end %>
+<h1>Users#users</h1>
+<p>Find me in app/views/users/index.html.erb</p>

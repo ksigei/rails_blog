@@ -1,18 +1,2 @@
-
-<% @posts.each_with_index do |post, index| %>
-    <h2><%= post.title %></h2>
-    <p><%= post.text %></p>
-    <p><%= post.comments_counter %> Comment
-    <%= post.likes_counter %> Like 
-    </p>
-    <% post.comments.each do |comment|%>
-    <p><%= comment.user.name %></p>
-    <p><%= comment.text %></p>
-    <% end %>
-    <p>By: <%= post.user.name %> </p>
-    <p><%= link_to 'Read more...', post_path(post) %></p>
-
-    <hr>
-    
-
-<% end %>
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
