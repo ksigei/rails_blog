@@ -43,3 +43,4 @@ require 'faker'
 #     user = users.sample
 #     posts.each { |post| post.likes.create!(user: user, like: like) }
 # end
+
