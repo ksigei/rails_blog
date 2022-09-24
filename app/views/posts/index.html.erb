@@ -1,0 +1,15 @@
+<h1>Posts</h1>
+
+<% @posts.each_with_index do |post, index| %>
+    <h2><%= post.title %></h2>
+    <p><%= post.text %></p>
+    <p><%= link_to 'Read more...', post_path(post) %></p>
+    <p><%= post.comments_counter %> Comment
+    <%= post.likes_counter %> Like 
+    </p>
+    <% post.comments.each do |comment|%>
+    <p><%= comment.user.name %></p>
+    <p><%= comment.text %></p>
+    <% end %>
+    <p>By: <%= post.user.name %> </p>
+<% end %>
