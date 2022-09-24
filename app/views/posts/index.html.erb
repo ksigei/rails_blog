@@ -2,7 +2,6 @@
 <% @posts.each_with_index do |post, index| %>
     <h2><%= post.title %></h2>
     <p><%= post.text %></p>
-    <p><%= link_to 'Read more...', post_path(post) %></p>
     <p><%= post.comments_counter %> Comment
     <%= post.likes_counter %> Like 
     </p>
@@ -11,6 +10,9 @@
     <p><%= comment.text %></p>
     <% end %>
     <p>By: <%= post.user.name %> </p>
+    <p><%= link_to 'Read more...', post_path(post) %></p>
+
     <hr>
+    
 
 <% end %>

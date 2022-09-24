@@ -6,14 +6,14 @@
     <h2><%= @user.name %></h2>
     <p>
     <% if @user.posts_counter == 1 %>
-        <%= @user.posts_counter %> post
+        <%= @user.posts_counter %> <%= link_to("Post", user_posts_path(@user)) %>
     </h3>
     <% elsif @user.posts_counter == 0 %>
         no post
     </h3>
 
     <% else %>
-        <%= @user.posts_counter %> post  
+        <%= @user.posts_counter %> <%= link_to("Posts", user_posts_path(@user)) %> 
     </h3> </p>
     <% end %>
     </div>

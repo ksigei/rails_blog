@@ -6,6 +6,8 @@
 <p><%= @post.text %></p>
 
 <h3>Comments</h3>
+ <hr>
+    
  <% @post.comments.each do |comment|%>
  <p><%= comment.user.name %>: <%= comment.text %></p>
  <hr>
