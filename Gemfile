@@ -75,12 +75,19 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f0f751 (Revert "Revert "Blog app - Views"")
 # image processing
 group :development, :test do
   gem 'mini_magick'
 end
+<<<<<<< HEAD
 
 # faker
 group :development, :test do
   gem 'faker'
 end
+=======
+>>>>>>> 9f0f751 (Revert "Revert "Blog app - Views"")

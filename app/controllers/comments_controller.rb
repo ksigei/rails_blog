@@ -1,3 +1,6 @@
 class CommentsController < ApplicationController
-  def comments; end
+  def comments
+    @comments = Comment.find(:all)
+    @post = comments.post.find(:all)
+  end
 end
