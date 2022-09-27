@@ -85,3 +85,5 @@ end
 group :development, :test do
   gem 'faker'
 end
+
+gem 'bullet', group: 'development'
