@@ -1,24 +1,22 @@
 require 'faker'
-# LoadError: cannot load such file -- faker 
-# => gem install faker
 
 
-
-# User.create!(name: "Example User",
-#                 bio: "I'm an example user. I'm here to show you how this app works.",
-#                 photo: "https://i.imgur.com/4ZQ3Z0M.jpg")
-
-# Generate a bunch of additional users
 20.times do |n|
     name = Faker::Name.name
     bio = Faker::Lorem.sentence(word_count: 5)
     photo = Faker::LoremFlickr.image(size: "50x50", search_terms: ['people'])
+    email = Faker::Internet.email
+    password = "password"
+    password_confirmation = "password"
+
     User.create!(name: name,
                     bio: bio,
-                    photo: photo)
+                    photo: photo, 
+                    email: email,
+                    password: password,
+                    password_confirmation: password_confirmation)
     end
 
-# Generate posts for a subset of users
 
 users = User.order(:created_at).take(20)
 50.times do

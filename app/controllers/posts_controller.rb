@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-
+  before_action :authenticate_user!
   def new
     @user = current_user
     @post = Post.new
