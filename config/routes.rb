@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   
   get '/posts/:id', to: 'posts#show'
   get '/posts/:id/comments', to: 'comments#comments'
