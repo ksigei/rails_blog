@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  # confirmation routes
+  devise_for :users, controllers: { confirmations: 'confirmations' }
+  
   # get 'users/index'
   get 'users/show'
   get 'posts/index'
