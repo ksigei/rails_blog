@@ -57,14 +57,6 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: "admin@writermint.com",
     password: ENV['WRITEMINT_SMTP_PASSWORD']
-    # admin@writermint.com
-    # :address => "smtp.gmail.com",
-    # :port => 587,
-    # :domain => "gmail.com",
-    # :user_name => "sigeikiprono4@gmail.com",
-    # :password => ENV['GMAIL_PASSWORD'],
-    # :authentication => "plain",
-    # :enable_starttls_auto => true
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
