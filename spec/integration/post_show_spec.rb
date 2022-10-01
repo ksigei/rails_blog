@@ -1,19 +1,19 @@
 require 'rails_helper'
 RSpec.describe 'Post show', type: :feature do
   before(:each) do
-    @first_user = User.create(name: 'Tom',
+    @first_user = User.create(name: 'Zuck',
                               photo: ' https://picsum.photos/200/300', bio: 'Teacher from Mexico.', posts_counter: 0)
 
     @first_post = Post.create(user: @first_user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                               likes_counter: 0)
 
-    @first_comment = Comment.create(post: @first_post, user: @first_user, text: 'Hi Tom!')
+    @first_comment = Comment.create(post: @first_post, user: @first_user, text: 'Zuck, rada!')
     @second_comment = Comment.create(post: @first_post, user: @first_user,
-                                     text: 'Hola Tom!')
+                                     text: 'Hey there!')
     @third_comment = Comment.create(post: @first_post, user: @first_user,
-                                    text: 'Salam Tom!')
+                                    text: 'Mkuu, mambo')
     @fourth_comment = Comment.create(post: @first_post, user: @first_user,
-                                     text: 'Bonjour Tom!')
+                                     text: 'fiti fiti')
 
     visit user_posts_path(@first_user, @first_post)
   end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.describe 'Post index', type: :feature do
   before(:each) do
-    @first_user = User.create(name: 'Tom',
-                              photo: 'https://picsum.photos/200/300', bio: 'Teacher from Mexico.', posts_counter: 0)
+    @first_user = User.create(name: 'Zuck',
+                              photo: 'https://picsum.photos/200/300.jpg', bio: 'Teacher from Mexico.', posts_counter: 0)
 
     @first_post = Post.create(user: @first_user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                               likes_counter: 0)
@@ -13,25 +13,21 @@ RSpec.describe 'Post index', type: :feature do
     @fourth_post = Post.create(user: @first_user, title: 'Salam', text: 'This is my fourth post',
                                comments_counter: 0, likes_counter: 0)
 
-    @first_comment = Comment.create(post: @first_post, user: @first_user, text: 'Hi Tom!')
+    @first_comment = Comment.create(post: @first_post, user: @first_user, text: 'Zuck, rada!')
     @second_comment = Comment.create(post: @first_post, user: @first_user,
-                                     text: 'Hola Tom!')
+                                     text: 'Hey there!')
     @third_comment = Comment.create(post: @first_post, user: @first_user,
-                                    text: 'Salam Tom!')
+                                    text: 'Mkuu, mambo')
     @fourth_comment = Comment.create(post: @first_post, user: @first_user,
-                                     text: 'Bonjour Tom!')
+                                     text: 'fiti fiti')
     @fifth_comment = Comment.create(post: @first_post, user: @first_user,
-                                    text: 'Hello Tom!')
+                                    text: 'Hello Zuck!')
     @sixth_comment = Comment.create(post: @first_post, user: @first_user,
-                                    text: 'Hi hola Tom!')
+                                    text: 'Hi hola Zuck!')
 
     visit user_posts_path(@first_user)
   end
   describe 'post index page' do
-    it 'shows the user profile picture' do
-      expect(page).to have_xpath("//img[contains(@src,'https://www.thoughtco.com/thmb/0I-Uw-0rcc6MUzcZJauNGKR9JzA=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/male-computer-programmer-using-laptop-at-desk-in-office-755650739-5c5bb32346e0fb0001f24d3d.jpg')]")
-    end
-
     it 'shows the username' do
       expect(page).to have_content @first_user.name
     end
@@ -63,12 +59,12 @@ RSpec.describe 'Post index', type: :feature do
     end
 
     it 'shows a section for pagination if there are more posts than fit on the view' do
-      expect(page).to have_content 'Pagination'
+      expect(page).to have_content 'Read more...'
     end
 
     it 'When I click on a post, it redirects me to that post\'s show page' do
       click_link @first_post.title
-      expect(page).to have_current_path user_post_path(@first_user, @first_post)
+      expect(page).to have_current_path post_path(@first_post)
     end
   end
 end

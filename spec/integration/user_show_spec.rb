@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'User show', type: :feature do
   before(:each) do
-    @first_user = User.create(name: 'Tom',
+    @first_user = User.create(name: 'Zuck',
                               photo: 'https://picsum.photos/200/300', bio: 'Teacher from Mexico.', posts_counter: 0)
     @first_post = Post.create(user: @first_user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                               likes_counter: 0)
@@ -43,8 +43,8 @@ RSpec.describe 'User show', type: :feature do
     end
 
     it 'When I click on a user post, it redirects me to that post\'s show page' do
-      click_link 'Hello'
-      expect(page).to have_current_path user_post_path(@first_user, @first_post)
+      click_link @first_post.title
+      expect(page).to have_current_path(post_path(@first_post))
     end
 
     it 'When I click to see all posts, it redirects me to the user\'s post\'s index page' do
