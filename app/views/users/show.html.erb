@@ -28,7 +28,8 @@
 <div class="post">
 
         <%= link_to("/posts/#{post.id}") do%>
-        <h3><%= post.title %></h3>
+        <%= link_to post.title, post_path(post) %>
+
         <p><%= post.text %></p>
         <p><%= post.comments_counter %> Comment
         <%= post.likes_counter %> Like</p>
@@ -37,5 +38,5 @@
 <% end %>
 
 <div class="more-posts">
-<%= link_to("See all...", user_posts_path(@user)) %>
+<%= link_to("See all posts", user_posts_path(@user)) %>
 </div>
