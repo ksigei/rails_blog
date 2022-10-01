@@ -1,24 +1,19 @@
 Rails.application.routes.draw do
-  root "users#index"
-  resources :posts do 
-    resources :users, only: [:index]
-    resources :comments
-    resources :likes
-  end
+  # confirmation routes
+  devise_for :users, controllers: { confirmations: 'confirmations' }
   
+  # get 'users/index'
+  get 'users/show'
+  get 'posts/index'
+  get 'posts/show'
+  root 'users#index'
 
-  resources :users do
-    resources :posts do
-      resources :comments
-    end
+  resources :users, only: [:index, :show] do
+    resources :posts, only: [:index, :show, :new, :form, :create]
   end
-  
-  get '/posts/:id', to: 'posts#show'
-  get '/posts/:id/comments', to: 'comments#comments'
-  get '/posts/:id/likes', to: 'likes#likes'
-  
-  get '/users', to: 'users#index'
-  get '/users/:id', to: 'users#show'
-  get '/about', to: 'about#about'
 
+  resources :posts do
+    resources :comments, only: [:create]
+    resources :likes, only: [:create]
+  end
 end
