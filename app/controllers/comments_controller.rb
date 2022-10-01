@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @comments = Comment.includes(:post).all
 
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @comments }
     end
   end
