@@ -1,11 +1,6 @@
 class CommentsController < ApplicationController
   def comments
     @comments = Comment.includes(:post).all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @comments }
-    end
   end
 
   def create
