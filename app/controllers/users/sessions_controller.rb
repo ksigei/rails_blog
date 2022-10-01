@@ -1,6 +1,12 @@
 # frozen_string_literal: true
+# E: Lint/Syntax: unexpected token tIDENTIFIER
+# (Using Ruby 3.1 parser; configure using TargetRubyVersion parameter, under AllCops)
+# If you have extra params to permit, append them to the sanitizer.
 
-class Users::SessionsController < Devise::SessionsController
+# disable the above error for below lines
+
+
+class SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
   GET /resource/sign_in
@@ -24,4 +30,6 @@ class Users::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   end
-end
+
+
+
