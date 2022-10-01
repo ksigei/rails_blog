@@ -1,38 +1,59 @@
 require 'rails_helper'
+RSpec.describe 'Post show', type: :feature do
+  before(:each) do
+    @first_user = User.create(name: 'Tom',
+                              photo: ' https://picsum.photos/200/300', bio: 'Teacher from Mexico.', posts_counter: 0)
 
-feature 'user post show page' do
-  before :each do
-    sign_up_as_kip
-    visit users_url
-    click_link 'Kip'
-    click_button 'View All Posts'
+    @first_post = Post.create(user: @first_user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                              likes_counter: 0)
+
+    @first_comment = Comment.create(post: @first_post, user: @first_user, text: 'Hi Tom!')
+    @second_comment = Comment.create(post: @first_post, user: @first_user,
+                                     text: 'Hola Tom!')
+    @third_comment = Comment.create(post: @first_post, user: @first_user,
+                                    text: 'Salam Tom!')
+    @fourth_comment = Comment.create(post: @first_post, user: @first_user,
+                                     text: 'Bonjour Tom!')
+
+    visit user_posts_path(@first_user, @first_post)
   end
 
-  scenario 'has the post\'s title' do
-    expect(page).to have_content('Posts')
-  end
+  describe 'post show page' do
+    it 'shows the post title' do
+      expect(page).to have_content @first_post.title
+    end
 
-  scenario 'has the post\'s author' do
-    expect(page).to have_content('Kip')
-  end
+    it 'shows who wrote the post' do
+      expect(page).to have_content @first_post.user.name
+    end
 
-  scenario 'has the number of comments the post has' do
-    expect(page).to have_content('0')
-  end
+    it 'shows how many comments it has' do
+      expect(@first_post.comments_counter).to eq(4)
+    end
 
-  scenario 'has the number of likes the post has' do
-    expect(page).to have_content('0')
-  end
+    it 'shows how many likes it has' do
+      expect(@first_post.likes_counter).to eq(0)
+    end
 
-  scenario 'has the post\'s body' do
-    expect(page).to have_content('No posts yet.')
-  end
+    it 'shows the post body' do
+      expect(page).to have_content @first_post.text
+    end
 
-  scenario 'has the username of each commentor' do
-    expect(page).to have_content('No posts yet.')
-  end
+    it 'showd the username of each commentor' do
+      expect(page).to have_content @first_comment.user.name
+      expect(page).to have_content @second_comment.user.name
+      expect(page).to have_content @third_comment.user.name
+      expect(page).to have_content @fourth_comment.user.name
+    end
 
-  scenario 'has the comment each commentor left' do
-    expect(page).to have_content('No posts yet.')
+    it 'shows the comment each commentor left' do
+      expect(page).to have_content @first_comment.text
+      expect(page).to have_content @second_comment.text
+      expect(page).to have_content @third_comment.text
+      expect(page).to have_content @fourth_comment.text
+    end
   end
 end
+
+# I can see the username of each commentor.
+# I can see the comment each commentor left.
